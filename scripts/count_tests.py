@@ -13,5 +13,5 @@ out = subprocess.run(
     [sys.executable, "-m", "pytest", "tests/", "--collect-only", "-q"],
     capture_output=True, text=True, check=True, cwd=ROOT, env=env,
 )
-lines = [l for l in out.stdout.splitlines() if "::" in l]
+lines = [line for line in out.stdout.splitlines() if "::" in line]
 print(f"tests_collected={len(lines)}")
